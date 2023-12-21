@@ -9,10 +9,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ExtractNews.Migrations
+namespace news_scraper_ph.Migrations
 {
     [DbContext(typeof(NewsDbContext))]
-    [Migration("20231214135813_FirstMigration")]
+    [Migration("20231218043117_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -39,6 +39,10 @@ namespace ExtractNews.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NewsUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Section")
                         .IsRequired()
                         .HasColumnType("text");
 

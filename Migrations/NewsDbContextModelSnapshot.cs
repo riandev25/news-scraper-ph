@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ExtractNews.Migrations
+namespace news_scraper_ph.Migrations
 {
     [DbContext(typeof(NewsDbContext))]
     partial class NewsDbContextModelSnapshot : ModelSnapshot
@@ -36,6 +36,10 @@ namespace ExtractNews.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NewsUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Section")
                         .IsRequired()
                         .HasColumnType("text");
 

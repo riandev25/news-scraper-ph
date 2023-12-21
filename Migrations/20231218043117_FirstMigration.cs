@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ExtractNews.Migrations
+namespace news_scraper_ph.Migrations
 {
     /// <inheritdoc />
     public partial class FirstMigration : Migration
@@ -19,6 +19,7 @@ namespace ExtractNews.Migrations
                     Title = table.Column<string>(type: "text", nullable: false),
                     NewsUrl = table.Column<string>(type: "text", nullable: false),
                     ImageUrl = table.Column<string>(type: "text", nullable: false),
+                    Section = table.Column<string>(type: "text", nullable: false),
                     SubSection = table.Column<string>(type: "text", nullable: false),
                     DateTimeUploaded = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
