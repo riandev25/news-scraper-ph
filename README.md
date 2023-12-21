@@ -39,6 +39,12 @@ When using visual studio, just run the project using the GUI.
 
 - [Puppeteer Sharp](https://www.puppeteersharp.com/)
 
+## Versions
+
+| Version | Release Date | Changes |
+|---------|--------------|---------|
+| 1.0.0   | 2023-12-21   | Initial release |
+
 
 
 
