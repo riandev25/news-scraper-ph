@@ -41,7 +41,7 @@ public class NewsScraper
 
             foreach (var item in href)
             {
-                Console.WriteLine($"Title: {item.Title}, NewsUrl: {item.NewsUrl}, ImageUrl: {item.ImageUrl}, SubSection: {item.SubSection}, DatetimeUploaded: {item.DateTimeUploaded}");
+                Console.WriteLine($"Title: {item.Title}, NewsUrl: {item.NewsUrl}, ImageUrl: {item.ImageUrl}, Section: {item.Section}, SubSection: {item.SubSection}, DatetimeUploaded: {item.DateTimeUploaded}");
                 item.NewsUrl = new Uri(item.NewsUrl.ToString());
                 item.ImageUrl = new Uri(item.ImageUrl.ToString());
             }
