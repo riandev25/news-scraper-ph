@@ -18,6 +18,7 @@ namespace ExtractNews.EfCore.Models
         public Uri NewsUrl { get; set; }
         [Url]
         public Uri ImageUrl { get; set; }
+        public string Section {  get; set; }
         public string SubSection { get; set; } = string.Empty;
         public DateTime DateTimeUploaded { get; set; }
     }
