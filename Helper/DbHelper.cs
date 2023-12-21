@@ -9,16 +9,13 @@ using System.Threading.Tasks;
 
 namespace ExtractNews.Helper
 {
-    public class DbHelper
+    public class DbHelper(NewsDbContext context)
     {
-        private readonly NewsDbContext _context;
-        public DbHelper(NewsDbContext context)
+        private readonly NewsDbContext _context = context;
+
+        public void SaveOrder(List<RawNewsModel> rawNewsList)
         {
-            _context = context;
-        }
-        public void SaveOrder(List<TitleUrlModel> rawNewsList)
-        {
-            List<TitleUrlModel> sortedRawNewListByDatetime = [.. rawNewsList.OrderByDescending(news => news.DateTimeUploaded)];
+            List<RawNewsModel> sortedRawNewListByDatetime = [.. rawNewsList.OrderByDescending(news => news.DateTimeUploaded)];
 
             foreach (var rawNewsEach in sortedRawNewListByDatetime)
             {
@@ -28,26 +25,12 @@ namespace ExtractNews.Helper
                 dbTable.NewsUrl = new Uri(rawNewsEach.NewsUrl.ToString());
                 dbTable.ImageUrl = new Uri(rawNewsEach.ImageUrl.ToString());
                 dbTable.Title = rawNewsEach.Title;
+                dbTable.Section = rawNewsEach.Section;
                 dbTable.SubSection = rawNewsEach.SubSection;
                 dbTable.DateTimeUploaded = rawNewsEach.DateTimeUploaded;
                 _context.RawNews.Add(dbTable);
             };
             _context.SaveChanges();
         }
-
-        //public void SaveOrder(TitleUrlModel rawNews)
-        //{
-        //    RawNews dbTable = new()
-        //    {
-        //        NewsUrl = rawNews.NewsUrl,
-        //        Title = rawNews.Title,
-        //        ImageUrl = rawNews.ImageUrl,
-        //        SubSection = rawNews.SubSection,
-        //        DateTimeUploaded = rawNews.DateTimeUploaded
-        //    };
-        //    _context.RawNews.Add(dbTable);
-        //    _context.SaveChanges();
-        //}
-
     }
 }
