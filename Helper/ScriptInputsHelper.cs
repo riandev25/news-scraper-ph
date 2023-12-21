@@ -2,27 +2,27 @@
 {
     public static class ScriptInputsHelper
     {
-        public static (string?, string?, string?, string?) GetValidInputsForDateScrapeRange()
+        public static (string, int, string, int) GetValidInputsForDateScrapeRange()
         {
             // start month input handler
             Console.WriteLine("Month start (ex. november):");
             string? inputMonthStart = Console.ReadLine();
-            string validInputMonthStart = ThrowIfNullOrEmptyAndReturnIfNot(inputMonthStart, "Didn't provide month start to scrape");
+            var validInputMonthStart = ThrowIfNullOrEmptyAndReturnIfNot(inputMonthStart, "Didn't provide month start to scrape");
 
             // start year input handler
             Console.WriteLine("Year start (ex. 2023):");
             string inputYearStart = Console.ReadLine();
-            string validInputYearStart = ThrowIfNullOrEmptyAndReturnIfNot(inputYearStart, "Didn't provide year start to scrap");
+            var validInputYearStart = ThrowIfNullOrEmptyAndReturnIfNot(int.Parse(inputYearStart), "Year provided is out of range");
 
             // end month input handler
             Console.WriteLine("Month end (ex. december):");
             string inputMonthEnd = Console.ReadLine();
-            string validInputMonthEnd = ThrowIfNullOrEmptyAndReturnIfNot(inputMonthEnd, "Didn't provide month end to scrape");
+            var validInputMonthEnd = ThrowIfNullOrEmptyAndReturnIfNot(inputMonthEnd, "Didn't provide month end to scrape");
 
             // end date input handler
             Console.WriteLine("Year end (ex. 2023):");
             string inputYearEnd = Console.ReadLine();
-            string validInputYearEnd = ThrowIfNullOrEmptyAndReturnIfNot(inputYearEnd, "Didn't provide year to scrape");
+            var validInputYearEnd = ThrowIfNullOrEmptyAndReturnIfNot(int.Parse(inputYearEnd), "Year provided is out of range");
             return (validInputMonthStart, validInputYearStart, validInputMonthEnd, validInputYearEnd);
         }
 
@@ -34,7 +34,7 @@
                 "money",
                 "sports",
                 "pinoyabroad",
-                "sci-tech",
+                "scitech",
                 "showbiz",
                 "lifestyle",
                 "opinion",
@@ -62,7 +62,7 @@
             Console.WriteLine("money");
             Console.WriteLine("sports");
             Console.WriteLine("pinoyabroad");
-            Console.WriteLine("sci-tech");
+            Console.WriteLine("scitech");
             Console.WriteLine("showbiz");
             Console.WriteLine("lifestyle");
             Console.WriteLine("opinion");
@@ -80,6 +80,19 @@
             {
                 throw new ArgumentException(exceptionParameter);
             } else
+            {
+                return input!;
+            }
+        }
+        private static int ThrowIfNullOrEmptyAndReturnIfNot(int input, string exceptionParameter)
+        {
+            var currentYear = DateTime.Now.Year;
+
+            if (input < 2008 && input > currentYear)
+            {
+                throw new ArgumentException(exceptionParameter);
+            }
+            else
             {
                 return input!;
             }
