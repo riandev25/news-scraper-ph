@@ -105,3 +105,4 @@ C:\Users\Admin\Desktop\practice-projects\news-scraper-ph\obj\Debug\net8.0\refint
 C:\Users\Admin\Desktop\practice-projects\news-scraper-ph\obj\Debug\net8.0\news-scraper-ph.pdb
 C:\Users\Admin\Desktop\practice-projects\news-scraper-ph\obj\Debug\net8.0\news-scraper-ph.genruntimeconfig.cache
 C:\Users\Admin\Desktop\practice-projects\news-scraper-ph\obj\Debug\net8.0\ref\news-scraper-ph.dll
+C:\Users\Admin\Desktop\practice-projects\news-scraper-ph\obj\Debug\net8.0\news-scraper-ph.sourcelink.json
